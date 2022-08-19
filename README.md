@@ -14,7 +14,7 @@ Kimera uses stereo images and IMU (if available) as an input. [RealSense D435](h
      alt="Camera Modules" width="640" height="330"/>
 
 
-<img src="https://raw.githubusercontent.com/ibrahimovnijat/Real-Time-3D-reconstruction-with-Kimera-VIO/test/imgs/depth-camera-d435_details.jpg?token=GHSAT0AAAAAABXTCNKBMDVFIRU4LCKXBZLCYYADDNA"
+<img src="https://raw.githubusercontent.com/ibrahimovnijat/Real-Time-3D-reconstruction-with-Kimera-VIO/test/imgs/depth-camera-d435_details.jpg?token=GHSAT0AAAAAABXTCNKBK223CQSQ4BKK66VSYYADMYQ"
      alt="Camera Modules" width="640" height="330"/>
 
 
