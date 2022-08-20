@@ -232,7 +232,7 @@ rosbag play V1_01_easy.bag --clock
 [![IMAGE ALT TEXT HERE](https://i9.ytimg.com/vi/ZswQS5ymVtU/mq3.jpg?sqp=CMjcgpgG&rs=AOn4CLDL9djMpEyn_gaeNgFoyIjnPj7Zvg)](https://youtu.be/ZswQS5ymVtU)
 
 
-
+Following video demo illustrates the actual real-time 3D reconstruction with D435 depth camera. Please, note that this reconstruction is purely CPU based. 
 **Video Demo**
 
 
