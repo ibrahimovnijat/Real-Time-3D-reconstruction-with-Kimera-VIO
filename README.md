@@ -4,7 +4,7 @@ This markdown file explains the steps to generate a 3D real-time mesh reconstruc
 
 General overview of Kimera is as follows:
 
-<img src="https://raw.githubusercontent.com/ibrahimovnijat/Real-Time-3D-reconstruction-with-Kimera-VIO/test/imgs/kimera_chart.jpeg?token=GHSAT0AAAAAABWHX7GKII7MPN3Q4WSNALSCYYARMFQ"
+<img src="https://raw.githubusercontent.com/ibrahimovnijat/Real-Time-3D-reconstruction-with-Kimera-VIO/test/imgs/kimera_chart.jpeg?token=GHSAT0AAAAAABWHX7GKMT6M6HRR7FURFJFCYYAWKKA"
      alt="Camera Modules" width="680" height="420" class="center"/>
 
 
@@ -15,10 +15,10 @@ Tested with **ROS Noetic** on **Ubuntu 20.04 LTS**.
 
 Kimera uses stereo images and IMU (if available) as an input. I used [RealSense D435](https://www.intelrealsense.com/depth-camera-d435/) depth camera to stream stereo data.  
 
-<img src="https://raw.githubusercontent.com/ibrahimovnijat/Real-Time-3D-reconstruction-with-Kimera-VIO/test/imgs/d435_camera_modules.jpg?token=GHSAT0AAAAAABWHX7GK6HL7SFEOQJ6HAUUAYYARGWA"
+<img src="https://raw.githubusercontent.com/ibrahimovnijat/Real-Time-3D-reconstruction-with-Kimera-VIO/test/imgs/d435_camera_modules.jpg?token=GHSAT0AAAAAABWHX7GLEW6ZM4PWADIRNVXKYYAWJUQ"
      alt="Camera Modules" width="640" height="330" class="center"/>
 
-<img src="https://raw.githubusercontent.com/ibrahimovnijat/Real-Time-3D-reconstruction-with-Kimera-VIO/test/imgs/depth-camera-d435_details.jpg?token=GHSAT0AAAAAABWHX7GLZYQ5LJNLNWMPCIKQYYARHLQ"
+<img src="https://raw.githubusercontent.com/ibrahimovnijat/Real-Time-3D-reconstruction-with-Kimera-VIO/test/imgs/depth-camera-d435_details.jpg?token=GHSAT0AAAAAABWHX7GKCCW5EHZXD23JHONYYYAWKCQ"
      alt="Camera Modules" width="640" height="330" class="center"/>
      
      
@@ -209,7 +209,10 @@ catkin build kimera_semantics_ros
 source ~/catkin_ws/devel/setup.bash
 ```
 
+Following diagram shows the basic structure of the wrapper. 
 
+<img src="https://raw.githubusercontent.com/ibrahimovnijat/Real-Time-3D-reconstruction-with-Kimera-VIO/test/imgs/kimera_ros_wrapper_diagram.png?token=GHSAT0AAAAAABWHX7GLLYBFS2MNXSWITWU6YYAWOQA"
+     alt="Camera Modules" width="680" height="420" class="center"/>
 
 ## Usage
 
@@ -227,14 +230,24 @@ rosbag play V1_01_easy.bag --clock
 ```
 
 
-**Video Demo**
+Reconstruction results with both Euroc dataset and RealSense D435 depth camera are as follows:
+
+<img src="https://raw.githubusercontent.com/ibrahimovnijat/Real-Time-3D-reconstruction-with-Kimera-VIO/test/imgs/rosbag_recons_image.png?token=GHSAT0AAAAAABWHX7GKJK5VJJQXTV4DGCJAYYAWNEQ"
+     alt="Camera Modules" width="640" height="330" class="center"/>
+     
+     
+<img src="https://raw.githubusercontent.com/ibrahimovnijat/Real-Time-3D-reconstruction-with-Kimera-VIO/test/imgs/room_recons.png?token=GHSAT0AAAAAABWHX7GKZZ6UJB3OL5TPHNXGYYAWM2A"
+     alt="Camera Modules" width="640" height="330" class="center"/>
+
+
+
+**Euroc Dataset Video Demo**
 
 [![IMAGE ALT TEXT HERE](https://i9.ytimg.com/vi/ZswQS5ymVtU/mq3.jpg?sqp=CMjcgpgG&rs=AOn4CLDL9djMpEyn_gaeNgFoyIjnPj7Zvg)](https://youtu.be/ZswQS5ymVtU)
 
 
-Following video demo illustrates the actual real-time 3D reconstruction with D435 depth camera. Please, note that this reconstruction is purely CPU based. 
-**Video Demo**
 
+**Video Demo**
 
 [![IMAGE ALT TEXT HERE](https://i9.ytimg.com/vi/3taIOLB7r34/mq3.jpg?sqp=CPTegpgG&rs=AOn4CLC-GKw9kgTaGkal1_R-0KqWNi9wHA)](https://youtu.be/3taIOLB7r34)
 
