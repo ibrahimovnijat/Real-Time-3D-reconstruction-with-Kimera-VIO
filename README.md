@@ -1,6 +1,6 @@
 # Real-Time-3D-reconstruction-with-Kimera-VIO
 
-This markdown file explains the steps to generate a 3D real-time mesh reconstruction using Intel Realsense depth camera and Kimera. [Kimera](https://github.com/MIT-SPARK/Kimera) is a C++ library for real-time metric-semantic visual Simultaneous Localizaiton and Mapping (SLAM). Kimera consists of four components: Visual Inertial Odometry ([Kimera-VIO](https://github.com/MIT-SPARK/Kimera-VIO)), mesh module reconstruction ([Kimera-Mesher](https://github.com/MIT-SPARK/Kimera-VIO)), robust pose graph optimization ([Kimera-RPGO](https://github.com/MIT-SPARK/Kimera-RPGO)), and 3D semantic segmentaion ([Kimera-Semantics](https://github.com/MIT-SPARK/Kimera-Semantics)). Please, refer to their about [paper](https://arxiv.org/pdf/1910.02490.pdf) to read more about how all these key components work together. It is a lightweight, robust and efficient library that works on CPU. 
+This markdown file explains the steps to generate a 3D real-time mesh reconstruction using Intel RealSense depth camera and Kimera. [Kimera](https://github.com/MIT-SPARK/Kimera) is a C++ library for real-time metric-semantic visual Simultaneous Localizaiton and Mapping (SLAM). It consists of four key components: Visual Inertial Odometry ([Kimera-VIO](https://github.com/MIT-SPARK/Kimera-VIO)), mesh module reconstruction ([Kimera-Mesher](https://github.com/MIT-SPARK/Kimera-VIO)), robust pose graph optimization ([Kimera-RPGO](https://github.com/MIT-SPARK/Kimera-RPGO)), and 3D semantic segmentaion ([Kimera-Semantics](https://github.com/MIT-SPARK/Kimera-Semantics)). Please, refer to their [paper](https://arxiv.org/pdf/1910.02490.pdf) to read more about how all these key components work together. It is a lightweight, robust and efficient library that works on CPU. 
 
 General overview of Kimera is as follows:
 
@@ -23,12 +23,11 @@ Kimera uses stereo images and IMU (if available) as an input. I used [RealSense 
      
      
      
-
 D435 has two stereo cameras with IR projector and RGB camera. Certain models (such as D435i) also have a built-in IMU. 
 
-Intel provides SDK for RealSense cameras, which can be downloaded [here](https://dev.intelrealsense.com/docs/compiling-librealsense-for-linux-ubuntu-guide?_ga=2.206885459.1336921430.1660882175-773886595.1660882175). The original page provides step by step instructions to download the SDK for all Operating Systems. It also allows to install a RealSense Viewer application, which allows to connect to camera via USB. You can set parameteres, stream, take images and even update the camera firmware. Additionally, all available drivers for all realsense camera can be found [here](https://dev.intelrealsense.com/docs/firmware-updates).
+Intel provides SDK for RealSense cameras, which can be downloaded [here](https://dev.intelrealsense.com/docs/compiling-librealsense-for-linux-ubuntu-guide?_ga=2.206885459.1336921430.1660882175-773886595.1660882175). The original page provides step by step instructions how to download the SDK for all Operating Systems. It installs RealSense Viewer application, which allows to connect to camera via USB. You can set parameters, stream, take images and update the camera firmware using the application. Additionally, all available drivers for all RealSense cameras can be found [here](https://dev.intelrealsense.com/docs/firmware-updates).
 
-Nice thing is RelSense cameras have a [ROS wrapper](https://github.com/IntelRealSense/realsense-ros) which makes it easier to integrate easier use to with Kimera. 
+Nice thing is this camera have a [ROS wrapper](https://github.com/IntelRealSense/realsense-ros) which makes it easy to integrate with Kimera. 
 
 #### Install realsense-ros
 
@@ -38,7 +37,7 @@ Nice thing is RelSense cameras have a [ROS wrapper](https://github.com/IntelReal
     sudo apt-get install ros-noetic-realsense2-camera
     ```
     
-* You can build it from source.
+* You can build it from source as well.
 
     1. Create a catkin workspace 
     
@@ -80,18 +79,20 @@ In order to start a camera node, you need to start ***rs_camera.launch*** file
 roslaunch realsense2_camera rs_camera.launch
 ```
 
-It will publish several topics depending the on camera type and parameter setup. Typical topics will include raw_image, rbg_image, camera ifnfo, imu data etc. 
+It will publish several topics depending the on camera type and settings. Typical topics will include raw_image, rbg_image, camera info, imu data etc. 
 
 For more information about parameter setup and usage, please, visit: [RealSense ROS](https://github.com/IntelRealSense/realsense-ros).
 
 
 ## Kimera VIO and Mesher
 
-There exists a [ROS wrapper]() for Kimera too, which makes it significantly easier to pass message from depth camera to Kimera and visualize the results with RViz. 
+There also exists a [ROS wrapper]() for Kimera too, which makes it significantly easier to pass message from depth camera to Kimera and visualize the results with RViz. 
 
-Simple diagram showing the structure of the ROS 
+Following diagram shows the basic structure of the wrapper. 
 
-[img] ros wrapper diagram goes here...
+<img src="https://raw.githubusercontent.com/ibrahimovnijat/Real-Time-3D-reconstruction-with-Kimera-VIO/test/imgs/kimera_ros_wrapper_diagram.png?token=GHSAT0AAAAAABWHX7GLLYBFS2MNXSWITWU6YYAWOQA"
+     alt="Camera Modules" width="680" height="420" class="center"/>
+
 
 
 **Kimera-VIO-ROS installation**
@@ -208,11 +209,6 @@ Then, compile:
 catkin build kimera_semantics_ros
 source ~/catkin_ws/devel/setup.bash
 ```
-
-Following diagram shows the basic structure of the wrapper. 
-
-<img src="https://raw.githubusercontent.com/ibrahimovnijat/Real-Time-3D-reconstruction-with-Kimera-VIO/test/imgs/kimera_ros_wrapper_diagram.png?token=GHSAT0AAAAAABWHX7GLLYBFS2MNXSWITWU6YYAWOQA"
-     alt="Camera Modules" width="680" height="420" class="center"/>
 
 ## Usage
 
