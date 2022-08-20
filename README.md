@@ -44,17 +44,39 @@ Nice thing is RelSense cameras have a [ROS wrapper](https://github.com/IntelReal
         
         ```
         git clone https://github.com/IntelRealSense/realsense-ros.git
-        
         cd realsense-ros/
-
         git checkout `git tag | sort -V | grep -P "^2.\d+\.\d+" | tail -1`
-
         cd ..
 
         ```
 
-  
-        
+    3. Build 
+
+        ```
+        catkin_init_workspace
+        cd ..
+        catkin_make clean
+        catkin_make -DCATKIN_ENABLE_TESTING=False -DCMAKE_BUILD_TYPE=Release
+        catkin_make install
+
+        ```
+    4. Automatically source setup bash script when new shell is launched. 
+        ```
+        echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
+        source ~/.bashrc
+        ```
+
+#### Launch realsense-ros
+
+In order to start a camera node, you need to start ***rs_camera.launch*** file
+ 
+```
+roslaunch realsense2_camera rs_camera.launch
+```
+
+It will publish several topics depending the on camera type and parameter setup. Typical topics will include raw_image, rbg_image, camera info, imu data etc. 
+
+
 #### Kimera
 
 1. Architecture and main modules (insert diagram here)
