@@ -8,16 +8,14 @@ Tested with **ROS Noetic** on **Ubuntu 20.04 LTS**.
 
 #### Intel Realsense Camera
 
-Kimera uses stereo images and IMU (if available) as an input. [RealSense D435](https://www.intelrealsense.com/depth-camera-d435/) is depth camera by Intel. 
+Kimera uses stereo images and IMU (if available) as an input. I used [RealSense D435](https://www.intelrealsense.com/depth-camera-d435/) depth camera to stream stereo data.  
 
 <img src="https://raw.githubusercontent.com/ibrahimovnijat/Real-Time-3D-reconstruction-with-Kimera-VIO/test/imgs/d435_camera_modules.jpg?token=GHSAT0AAAAAABXTCNKAAACVN62QWSMZF3W6YYADHTQ"
-     alt="Camera Modules" width="640" height="330"/>
+     alt="Camera Modules" width="640" height="330" class="center"/>
 
 
 <img src="https://raw.githubusercontent.com/ibrahimovnijat/Real-Time-3D-reconstruction-with-Kimera-VIO/test/imgs/depth-camera-d435_details.jpg?token=GHSAT0AAAAAABXTCNKBK223CQSQ4BKK66VSYYADMYQ"
-     alt="Camera Modules" width="640" height="330"/>
-
-
+     alt="Camera Modules" width="640" height="330" class="center"/>
 
 D435 has two stereo cameras with IR projector and RGB camera. Certain models (such as D435i) also have a built-in IMU. 
 
@@ -25,6 +23,38 @@ Intel provides SDK for RealSense cameras, which can be downloaded [here](https:/
 
 Nice thing is RelSense cameras have a [ROS wrapper](https://github.com/IntelRealSense/realsense-ros) which makes it easier to integrate easier use to with Kimera. 
 
+#### Install realsense-ros
+
+* It is possible to install deb package realsense2-camera on Ubuntu.
+        
+    ```
+    sudo apt-get install ros-noetic-realsense2-camera
+    ```
+
+* You can build it from source.
+
+    1. Create a catkin workspace 
+    
+        ```
+        mkdir -p ~/catkin_ws/src
+        cd ~/catkin_ws/src/
+        ```
+    
+    2. Clone realsense-ros repository into ~/catkin_ws/src
+        
+        ```
+        git clone https://github.com/IntelRealSense/realsense-ros.git
+        
+        cd realsense-ros/
+
+        git checkout `git tag | sort -V | grep -P "^2.\d+\.\d+" | tail -1`
+
+        cd ..
+
+        ```
+
+  
+        
 #### Kimera
 
 1. Architecture and main modules (insert diagram here)
