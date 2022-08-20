@@ -4,8 +4,6 @@ This markdown file explains the steps to generate a 3D real-time mesh reconstruc
 
 General overview of Kimera is as follows:
 
-
-
 <img src="https://raw.githubusercontent.com/ibrahimovnijat/Real-Time-3D-reconstruction-with-Kimera-VIO/test/imgs/kimera_chart.jpeg?token=GHSAT0AAAAAABWHX7GKII7MPN3Q4WSNALSCYYARMFQ"
      alt="Camera Modules" width="680" height="420" class="center"/>
 
@@ -22,6 +20,9 @@ Kimera uses stereo images and IMU (if available) as an input. I used [RealSense 
 
 <img src="https://raw.githubusercontent.com/ibrahimovnijat/Real-Time-3D-reconstruction-with-Kimera-VIO/test/imgs/depth-camera-d435_details.jpg?token=GHSAT0AAAAAABWHX7GLZYQ5LJNLNWMPCIKQYYARHLQ"
      alt="Camera Modules" width="640" height="330" class="center"/>
+     
+     
+     
 
 D435 has two stereo cameras with IR projector and RGB camera. Certain models (such as D435i) also have a built-in IMU. 
 
@@ -230,4 +231,10 @@ rosbag play V1_01_easy.bag --clock
 
 [![IMAGE ALT TEXT HERE](https://i9.ytimg.com/vi/ZswQS5ymVtU/mq3.jpg?sqp=CMjcgpgG&rs=AOn4CLDL9djMpEyn_gaeNgFoyIjnPj7Zvg)](https://youtu.be/ZswQS5ymVtU)
 
+
+
+**Video Demo**
+
+
+[![IMAGE ALT TEXT HERE](https://i9.ytimg.com/vi/3taIOLB7r34/mq3.jpg?sqp=CPTegpgG&rs=AOn4CLC-GKw9kgTaGkal1_R-0KqWNi9wHA)](https://youtu.be/3taIOLB7r34)
 
