@@ -27,7 +27,7 @@ D435 has two stereo cameras with IR projector and RGB camera. Certain models (su
 
 Intel provides SDK for RealSense cameras, which can be downloaded [here](https://dev.intelrealsense.com/docs/compiling-librealsense-for-linux-ubuntu-guide?_ga=2.206885459.1336921430.1660882175-773886595.1660882175). The original page provides step by step instructions how to download the SDK for all Operating Systems. It installs RealSense Viewer application, which allows to connect to camera via USB. You can set parameters, stream, take images and update the camera firmware using the application. Additionally, all available drivers for all RealSense cameras can be found [here](https://dev.intelrealsense.com/docs/firmware-updates).
 
-Nice thing is this camera have a [ROS wrapper](https://github.com/IntelRealSense/realsense-ros) which makes it easy to integrate with Kimera. 
+The nice thing is this camera have a [ROS wrapper](https://github.com/IntelRealSense/realsense-ros) which makes it easy to integrate with Kimera. 
 
 #### Install realsense-ros
 
