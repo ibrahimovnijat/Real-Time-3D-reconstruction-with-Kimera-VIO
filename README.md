@@ -165,50 +165,50 @@ Following diagram shows the basic structure of the wrapper.
 
 - Install system dependencies
 
-```
-sudo apt-get install python-wstool python-catkin-tools  protobuf-compiler autoconf
-sudo apt-get install ros-noetic-cmake-modules
-```
+	```
+	sudo apt-get install python-wstool python-catkin-tools  protobuf-compiler autoconf
+	sudo apt-get install ros-noetic-cmake-modules
+	```
 
 - ROS wrapper installation
-
-```
-# Setup catkin workspace
-mkdir -p ~/catkin_ws/src
-cd ~/catkin_ws/
-catkin init
-catkin config --extend /opt/ros/melodic # Change `melodic` to your ROS distro
-catkin config --cmake-args -DCMAKE_BUILD_TYPE=Release
-catkin config --merge-devel
-
-# Add workspace to bashrc.
-echo 'source ~/catkin_ws/devel/setup.bash' >> ~/.bashrc
-
-# Clone repo
-cd ~/catkin_ws/src
-git clone git@github.com:MIT-SPARK/Kimera-Semantics.git
-
-# Install dependencies from rosinstall file using wstool
-wstool init # Use unless wstool is already initialized
-
-# Optionally add Kimera-Semantics to the rosinstall file
-# wstool scrape
-
-# For ssh:
-wstool merge Kimera-Semantics/install/kimera_semantics_ssh.rosinstall
-# For https:
-#wstool merge Kimera-Semantics/install/kimera_semantics_https.rosinstall
-
-# Download and update all dependencies
-wstool update
-```
+	
+	```
+	# Setup catkin workspace
+	mkdir -p ~/catkin_ws/src
+	cd ~/catkin_ws/
+	catkin init
+	catkin config --extend /opt/ros/melodic # Change `melodic` to your ROS distro
+	catkin config --cmake-args -DCMAKE_BUILD_TYPE=Release
+	catkin config --merge-devel
+	
+	# Add workspace to bashrc.
+	echo 'source ~/catkin_ws/devel/setup.bash' >> ~/.bashrc
+	
+	# Clone repo
+	cd ~/catkin_ws/src
+	git clone git@github.com:MIT-SPARK/Kimera-Semantics.git
+	
+	# Install dependencies from rosinstall file using wstool
+	wstool init # Use unless wstool is already initialized
+	
+	# Optionally add Kimera-Semantics to the rosinstall file
+	# wstool scrape
+	
+	# For ssh:
+	wstool merge Kimera-Semantics/install/kimera_semantics_ssh.rosinstall
+	# For https:
+	#wstool merge Kimera-Semantics/install/kimera_semantics_https.rosinstall
+	
+	# Download and update all dependencies
+	wstool update
+	```
 
 Then, compile:
 
-```
-catkin build kimera_semantics_ros
-source ~/catkin_ws/devel/setup.bash
-```
+	```
+	catkin build kimera_semantics_ros
+	source ~/catkin_ws/devel/setup.bash
+	```
 
 ## Usage
 
