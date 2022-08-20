@@ -5,10 +5,9 @@ This markdown file explains the steps to generate a 3D real-time mesh reconstruc
 General overview of Kimera is as follows:
 
 
-kimera image goes here...
 
-<img src="https://raw.githubusercontent.com/ibrahimovnijat/Real-Time-3D-reconstruction-with-Kimera-VIO/test/imgs/d435_camera_modules.jpg?token=GHSAT0AAAAAABXTCNKAAACVN62QWSMZF3W6YYADHTQ"
-     alt="Camera Modules" width="640" height="330" class="center"/>
+<img src="https://raw.githubusercontent.com/ibrahimovnijat/Real-Time-3D-reconstruction-with-Kimera-VIO/test/imgs/kimera_chart.jpeg?token=GHSAT0AAAAAABWHX7GKII7MPN3Q4WSNALSCYYARMFQ"
+     alt="Camera Modules" width="680" height="420" class="center"/>
 
 
 Tested with **ROS Noetic** on **Ubuntu 20.04 LTS**. 
@@ -18,10 +17,10 @@ Tested with **ROS Noetic** on **Ubuntu 20.04 LTS**.
 
 Kimera uses stereo images and IMU (if available) as an input. I used [RealSense D435](https://www.intelrealsense.com/depth-camera-d435/) depth camera to stream stereo data.  
 
-<img src="https://raw.githubusercontent.com/ibrahimovnijat/Real-Time-3D-reconstruction-with-Kimera-VIO/test/imgs/d435_camera_modules.jpg?token=GHSAT0AAAAAABXTCNKAAACVN62QWSMZF3W6YYADHTQ"
+<img src="https://raw.githubusercontent.com/ibrahimovnijat/Real-Time-3D-reconstruction-with-Kimera-VIO/test/imgs/d435_camera_modules.jpg?token=GHSAT0AAAAAABWHX7GK6HL7SFEOQJ6HAUUAYYARGWA"
      alt="Camera Modules" width="640" height="330" class="center"/>
 
-<img src="https://raw.githubusercontent.com/ibrahimovnijat/RealsTime-3D-reconstruction-with-Kimera-VIO/test/imgs/depth-camera-d435_details.jpg?token=GHSAT0AAAAAABXTCNKBK223CQSQ4BKK66VSYYADMYQ"
+<img src="https://raw.githubusercontent.com/ibrahimovnijat/Real-Time-3D-reconstruction-with-Kimera-VIO/test/imgs/depth-camera-d435_details.jpg?token=GHSAT0AAAAAABWHX7GLZYQ5LJNLNWMPCIKQYYARHLQ"
      alt="Camera Modules" width="640" height="330" class="center"/>
 
 D435 has two stereo cameras with IR projector and RGB camera. Certain models (such as D435i) also have a built-in IMU. 
