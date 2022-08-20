@@ -225,11 +225,9 @@ rviz -d kimera_semantics_euroc.rviz
 rosbag play V1_01_easy.bag --clock
 ```
 
-<video src="[LINK](https://youtu.be/ZswQS5ymVtU)" controls="controls" style="max-width: 730px;">
-</video>
 
+**Video Demo**
 
-<a href="{https://youtu.be/ZswQS5ymVtU}" title="Demo Video"><img src="{https://i9.ytimg.com/vi/ZswQS5ymVtU/mq3.jpg?sqp=CMjcgpgG&rs=AOn4CLDL9djMpEyn_gaeNgFoyIjnPj7Zvg
-}" alt="Demo Video" /></a>
+[![IMAGE ALT TEXT HERE](https://i9.ytimg.com/vi/ZswQS5ymVtU/mq3.jpg?sqp=CMjcgpgG&rs=AOn4CLDL9djMpEyn_gaeNgFoyIjnPj7Zvg)](https://youtu.be/ZswQS5ymVtU)
 
 
