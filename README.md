@@ -15,10 +15,10 @@ Tested with **ROS Noetic** on **Ubuntu 20.04 LTS**.
 
 Kimera uses stereo images and IMU (if available) as an input. I used [RealSense D435](https://www.intelrealsense.com/depth-camera-d435/) depth camera to stream stereo data.  
 
-<img src="https://raw.githubusercontent.com/ibrahimovnijat/Real-Time-3D-reconstruction-with-Kimera-VIO/main/imgs/d435_camera_modules.jpg?token=GHSAT0AAAAAABWHX7GLBMLGX4VHWIMVEU5CYYAXOVA"
+<img src="https://raw.githubusercontent.com/ibrahimovnijat/Real-Time-3D-reconstruction-with-Kimera-VIO/main/imgs/d435_camera_modules.jpg?token=GHSAT0AAAAAABWHX7GL44AAEJKOSH5ZFAREYYAXVIQ"
      alt="Camera Modules" width="640" height="330" class="center"/>
 
-<img src="https://raw.githubusercontent.com/ibrahimovnijat/Real-Time-3D-reconstruction-with-Kimera-VIO/main/imgs/depth-camera-d435_details.jpg?token=GHSAT0AAAAAABWHX7GKF22AQA7FQVGZTAQ6YYAXO7A"
+<img src="https://raw.githubusercontent.com/ibrahimovnijat/Real-Time-3D-reconstruction-with-Kimera-VIO/main/imgs/depth-camera-d435_details.jpg?token=GHSAT0AAAAAABWHX7GK6XM3WDK6YGELOS7CYYAXVQQ"
      alt="Camera Modules" width="640" height="330" class="center"/>
      
      
@@ -243,7 +243,7 @@ Reconstruction results with both Euroc dataset and RealSense D435 depth camera a
 
 
 
-**Video Demo**
+**Real-time Reconstruction Video Demo**
 
 [![IMAGE ALT TEXT HERE](https://i9.ytimg.com/vi/3taIOLB7r34/mq3.jpg?sqp=CPTegpgG&rs=AOn4CLC-GKw9kgTaGkal1_R-0KqWNi9wHA)](https://youtu.be/3taIOLB7r34)
 
