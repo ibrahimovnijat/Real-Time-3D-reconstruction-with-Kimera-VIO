@@ -224,8 +224,12 @@ rviz -d kimera_semantics_euroc.rviz
 
 rosbag play V1_01_easy.bag --clock
 ```
-[![Alternate Text]({image-url})]({https://github.com/ibrahimovnijat/Real-Time-3D-reconstruction-with-Kimera-VIO/blob/test/videos/euroc_reconstruction.mp4} "VIdeo title")
+
+<video src="[LINK](https://youtu.be/ZswQS5ymVtU)" controls="controls" style="max-width: 730px;">
+</video>
 
 
+<a href="{https://youtu.be/ZswQS5ymVtU}" title="Demo Video"><img src="{https://i9.ytimg.com/vi/ZswQS5ymVtU/mq3.jpg?sqp=CMjcgpgG&rs=AOn4CLDL9djMpEyn_gaeNgFoyIjnPj7Zvg
+}" alt="Demo Video" /></a>
 
 
