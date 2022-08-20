@@ -224,7 +224,8 @@ rviz -d kimera_semantics_euroc.rviz
 
 rosbag play V1_01_easy.bag --clock
 ```
+[![Alternate Text]({image-url})]({https://github.com/ibrahimovnijat/Real-Time-3D-reconstruction-with-Kimera-VIO/blob/test/videos/euroc_reconstruction.mp4?raw=true} "VIdeo title")
 
-[img] rosbag reconstruction image goes here..
+
 
 
