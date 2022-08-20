@@ -6,7 +6,7 @@ This markdown file explains the steps to generate a 3D real-time mesh reconstruc
 Tested with **ROS Noetic** on **Ubuntu 20.04 LTS**. 
 
 
-#### Intel Realsense Camera
+## Intel Realsense Camera
 
 Kimera uses stereo images and IMU (if available) as an input. I used [RealSense D435](https://www.intelrealsense.com/depth-camera-d435/) depth camera to stream stereo data.  
 
@@ -58,7 +58,6 @@ Nice thing is RelSense cameras have a [ROS wrapper](https://github.com/IntelReal
         catkin_make clean
         catkin_make -DCATKIN_ENABLE_TESTING=False -DCMAKE_BUILD_TYPE=Release
         catkin_make install
-
         ```
     4. Automatically source setup bash script when new shell is launched. 
         ```
@@ -74,10 +73,13 @@ In order to start a camera node, you need to start ***rs_camera.launch*** file
 roslaunch realsense2_camera rs_camera.launch
 ```
 
-It will publish several topics depending the on camera type and parameter setup. Typical topics will include raw_image, rbg_image, camera info, imu data etc. 
+It will publish several topics depending the on camera type and parameter setup. Typical topics will include raw_image, rbg_image, camera ifnfo, imu data etc. 
+
+For more information about parameter setup and usage, please, visit: [RealSense ROS](https://github.com/IntelRealSense/realsense-ros).
 
 
-#### Kimera
+## Kimera
+
 
 1. Architecture and main modules (insert diagram here)
 2. Kimera ROS architecture and message passing diagram 
