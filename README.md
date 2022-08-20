@@ -2,6 +2,14 @@
 
 This markdown file explains the steps to generate a 3D real-time mesh reconstruction using Intel Realsense depth camera and Kimera. [Kimera](https://github.com/MIT-SPARK/Kimera) is a C++ library for real-time metric-semantic visual Simultaneous Localizaiton and Mapping (SLAM). Kimera consists of four components: Visual Inertial Odometry ([Kimera-VIO](https://github.com/MIT-SPARK/Kimera-VIO)), mesh module reconstruction ([Kimera-Mesher](https://github.com/MIT-SPARK/Kimera-VIO)), robust pose graph optimization ([Kimera-RPGO](https://github.com/MIT-SPARK/Kimera-RPGO)), and 3D semantic segmentaion ([Kimera-Semantics](https://github.com/MIT-SPARK/Kimera-Semantics)). Please, refer to their about [paper](https://arxiv.org/pdf/1910.02490.pdf) to read more about how all these key components work together. It is a lightweight, robust and efficient library that works on CPU. 
 
+General overview of Kimera is as follows:
+
+
+kimera image goes here...
+
+<img src="https://raw.githubusercontent.com/ibrahimovnijat/Real-Time-3D-reconstruction-with-Kimera-VIO/test/imgs/d435_camera_modules.jpg?token=GHSAT0AAAAAABXTCNKAAACVN62QWSMZF3W6YYADHTQ"
+     alt="Camera Modules" width="640" height="330" class="center"/>
+
 
 Tested with **ROS Noetic** on **Ubuntu 20.04 LTS**. 
 
@@ -13,8 +21,7 @@ Kimera uses stereo images and IMU (if available) as an input. I used [RealSense 
 <img src="https://raw.githubusercontent.com/ibrahimovnijat/Real-Time-3D-reconstruction-with-Kimera-VIO/test/imgs/d435_camera_modules.jpg?token=GHSAT0AAAAAABXTCNKAAACVN62QWSMZF3W6YYADHTQ"
      alt="Camera Modules" width="640" height="330" class="center"/>
 
-
-<img src="https://raw.githubusercontent.com/ibrahimovnijat/Real-Time-3D-reconstruction-with-Kimera-VIO/test/imgs/depth-camera-d435_details.jpg?token=GHSAT0AAAAAABXTCNKBK223CQSQ4BKK66VSYYADMYQ"
+<img src="https://raw.githubusercontent.com/ibrahimovnijat/RealsTime-3D-reconstruction-with-Kimera-VIO/test/imgs/depth-camera-d435_details.jpg?token=GHSAT0AAAAAABXTCNKBK223CQSQ4BKK66VSYYADMYQ"
      alt="Camera Modules" width="640" height="330" class="center"/>
 
 D435 has two stereo cameras with IR projector and RGB camera. Certain models (such as D435i) also have a built-in IMU. 
@@ -30,7 +37,7 @@ Nice thing is RelSense cameras have a [ROS wrapper](https://github.com/IntelReal
     ```
     sudo apt-get install ros-noetic-realsense2-camera
     ```
-
+    
 * You can build it from source.
 
     1. Create a catkin workspace 
@@ -78,18 +85,147 @@ It will publish several topics depending the on camera type and parameter setup.
 For more information about parameter setup and usage, please, visit: [RealSense ROS](https://github.com/IntelRealSense/realsense-ros).
 
 
-## Kimera
+## Kimera VIO and Mesher
+
+There exists a [ROS wrapper]() for Kimera too, which makes it significantly easier to pass message from depth camera to Kimera and visualize the results with RViz. 
+
+Simple diagram showing the structure of the ROS 
+
+[img] ros wrapper diagram goes here...
 
 
-1. Architecture and main modules (insert diagram here)
-2. Kimera ROS architecture and message passing diagram 
+**Kimera-VIO-ROS installation**
+
+-  Besides ROS Neotic (see [here](http://wiki.ros.org/noetic/Installation/Ubuntu)), also install non-default dependencies for **mesh_rviz_plugins**
+
+	```
+	sudo apt-get install ros-melodic-image-geometry ros-melodic-pcl-ros ros-melodic-cv-bridge
+	```
+- Update package list and install system dependencies
+
+	```
+	sudo apt-get install -y --no-install-recommends apt-utils
+	sudo apt-get install -y \
+	      cmake build-essential unzip pkg-config autoconf \
+	      libboost-all-dev \
+	      libjpeg-dev libpng-dev libtiff-dev \
+	# Use libvtk5-dev, libgtk2.0-dev in ubuntu 16.04 \
+	      libvtk6-dev libgtk-3-dev \
+	      libatlas-base-dev gfortran \
+	      libparmetis-dev \
+	      python-wstool python-catkin-tools \
+	
+	```
+
+- ROS wrapper installation (see [here](https://github.com/MIT-SPARK/Kimera-VIO-ROS#b-kimeravio-ros-wrapper-installation))
+	
+	```
+	# Setup catkin workspace
+	mkdir -p ~/catkin_ws/src
+	cd ~/catkin_ws/
+	catkin init
+	catkin config --cmake-args -DCMAKE_BUILD_TYPE=Release -DGTSAM_TANGENT_PREINTEGRATION=OFF
+	
+	catkin config --merge-devel
+	
+	# Add workspace to bashrc for automatic sourcing of workspace.
+	echo 'source ~/catkin_ws/devel/setup.bash' >> ~/.bashrc
+
+	
+	# Clone repo
+	cd ~/catkin_ws/src
+	# For ssh:
+	git clone git@github.com:MIT-SPARK/Kimera-VIO-ROS.git
+	# For https:
+	# git clone https://github.com/MIT-SPARK/Kimera-VIO-ROS.git
+	
+	# Install dependencies from rosinstall file using wstool
+	wstool init # Use unless wstool is already initialized
+		
+	# For ssh:
+	wstool merge Kimera-VIO-ROS/install/kimera_vio_ros_ssh.rosinstall
+	# For https
+	# wstool merge Kimera-VIO-ROS/install/kimera_vio_ros_https.rosinstall
+	
+	# download and update repos:
+	wstool update
+
+	```
+	Finally, compile wrapper with catkin build
+	
+	```
+	catkin build
+	
+	source ~/catkin_ws/devel/setup.bash
+	```
 
 
-#### Kimera VIO and Mesher
+**Kimera Semantics installation**
 
-1. Install ROS wrapper for Kimera 
-2. 
-2. Build and test a sample rosbag
-3.  Using Euroc dataset?!
+- Install system dependencies
 
-3. Get input from the camera and 3D reconstruct in real-time 
+```
+sudo apt-get install python-wstool python-catkin-tools  protobuf-compiler autoconf
+sudo apt-get install ros-noetic-cmake-modules
+```
+
+- ROS wrapper installation
+
+```
+# Setup catkin workspace
+mkdir -p ~/catkin_ws/src
+cd ~/catkin_ws/
+catkin init
+catkin config --extend /opt/ros/melodic # Change `melodic` to your ROS distro
+catkin config --cmake-args -DCMAKE_BUILD_TYPE=Release
+catkin config --merge-devel
+
+# Add workspace to bashrc.
+echo 'source ~/catkin_ws/devel/setup.bash' >> ~/.bashrc
+
+# Clone repo
+cd ~/catkin_ws/src
+git clone git@github.com:MIT-SPARK/Kimera-Semantics.git
+
+# Install dependencies from rosinstall file using wstool
+wstool init # Use unless wstool is already initialized
+
+# Optionally add Kimera-Semantics to the rosinstall file
+# wstool scrape
+
+# For ssh:
+wstool merge Kimera-Semantics/install/kimera_semantics_ssh.rosinstall
+# For https:
+#wstool merge Kimera-Semantics/install/kimera_semantics_https.rosinstall
+
+# Download and update all dependencies
+wstool update
+```
+
+Then, compile:
+
+```
+catkin build kimera_semantics_ros
+source ~/catkin_ws/devel/setup.bash
+```
+
+
+
+## Usage
+
+Before using the real camera, we can test Kimera with Euroc rosbag. In four different terminals, run the fo
+llowing commands:
+
+```
+roslaunch kimera_vio_ros kimera_vio_ros_euroc.launch run_stereo_dense:=true
+
+roslaunch kimera_semantics_ros kimera_semantics_euroc.launch
+
+rviz -d kimera_semantics_euroc.rviz
+
+rosbag play V1_01_easy.bag --clock
+```
+
+[img] rosbag reconstruction image goes here..
+
+
